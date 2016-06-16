@@ -1,7 +1,6 @@
 FROM python:3.5-alpine
 MAINTAINER MrRaph_ "mrrpah_@techan.fr"
 
-COPY ./requirements.txt /requirements.txt
 ADD start_runit /sbin/
 ADD service/firstrun.runit /etc/runit_init.d/
 
