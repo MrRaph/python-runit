@@ -1,11 +1,11 @@
-FROM python:3.5-alpine
+FROM alpine:3.3
 
 MAINTAINER nimmis <kjell.havneskold@gmail.com>
 
 COPY rootfs/ /
 
 RUN apk update && apk upgrade && \
-    apk add ca-certificates rsyslog supervisor && \
+    apk add ca-certificates supervisor rsyslog supervisor && \
     chmod +x /my_* && \
     mkdir /etc/my_runonce /etc/my_runalways /etc/container_environment /etc/workaround-docker-2267 /var/log/supervisor && \
     touch /var/log/startup.log && chmod 666 /var/log/startup.log && \
@@ -16,3 +16,4 @@ ENV HOME /root
 
 # Define default command.
 CMD ["/my_init"]
+
